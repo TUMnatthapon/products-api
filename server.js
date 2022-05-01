@@ -3,6 +3,8 @@ const app = express();
 const products = require('./products')
 const user = require('./user')
 
+let PORT = process.env.PORT || 3000;
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -54,6 +56,6 @@ app.delete('/products/:id', (req, res) => {
 });
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Application is running on port 3000');
 });
