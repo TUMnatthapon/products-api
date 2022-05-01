@@ -3,6 +3,12 @@ const app = express();
 const products = require('./products')
 const user = require('./user')
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+})
+
 let PORT = process.env.PORT || 3000;
 
 app.use(express.json())
